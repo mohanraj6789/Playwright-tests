@@ -34,7 +34,7 @@ test.describe('Loan Application Flow', () => {
     await startPage.clickApplyNow(); // Begin application process
   });
 
-  // Happy Path Test: Submitting a valid application and receiving approval
+  // Happy Path Test & Edge case: Submitting a valid application and receiving approval
   test('Full happy path Successful loan application flow', async () => {
     await personalPage.personalDetails(testUser.email, testUser.phone, testUser.ssn); 
     await employmentPage.selectEmploymentType(testUser.employmentStatus); 
