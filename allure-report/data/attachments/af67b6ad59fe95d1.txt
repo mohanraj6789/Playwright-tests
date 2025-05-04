@@ -1,0 +1,18 @@
+Navigating to application start page
+Clicking "Ansök nu" (Apply now) button
+Filling form with Personal details
+Checking that Employment Type page is loaded
+ Selecting employment type: Student
+ Clicking continue button after selecting employment type
+Checking that Financial Info page is loaded
+ Filling in monthly income: testUser.income
+ Filling in monthly house cost: testUser.monthlyHouseCost}
+ Filling in transportation cost: testUser.transportationCost}
+ Filling in other loan cost: testUser.otherLoanCost}
+ Clicking continue button to proceed
+Waiting for loan processing message...
+Waiting for loan approval confirmation message...
+ Verifying URL contains "/application/.../status"
+ Checking if "${TEXT.approvalLinkText}" link is visible
+ Loan approval page verified successfully
+Full happy path Successful loan application test completed

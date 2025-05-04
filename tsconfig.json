@@ -5,7 +5,7 @@
     "moduleResolution": "Node",
     "strict": true,
     "esModuleInterop": true,
-    "types": ["@playwright/test"],
+    "types": ["@playwright/test", "node"],
     "resolveJsonModule": true,
     "skipLibCheck": true
   },

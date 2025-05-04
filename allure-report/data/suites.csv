@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2097","Should show validation error for invalid personnummer","","Sun May 04 21:45:05 CEST 2025","passed","Sun May 04 21:45:07 CEST 2025","Loan Application Flow","loanApplication.spec.ts","",""
+"","18044","Student applicant exactly 25 years old should be approved","","Sun May 04 21:44:47 CEST 2025","passed","Sun May 04 21:45:05 CEST 2025","Loan Application Flow","loanApplication.spec.ts","",""
+"","20946","Validate loan rejection for student applicants older than 30 years","","Sun May 04 21:45:07 CEST 2025","failed","Sun May 04 21:45:28 CEST 2025","Loan Application Flow","loanApplication.spec.ts","",""
+"","27645","Full happy path Successful loan application flow","","Sun May 04 21:43:55 CEST 2025","passed","Sun May 04 21:44:22 CEST 2025","Loan Application Flow","loanApplication.spec.ts","",""
+"","23837","Accept valid 10-digit with hyphens personnummer format","","Sun May 04 21:44:23 CEST 2025","passed","Sun May 04 21:44:47 CEST 2025","Loan Application Flow","loanApplication.spec.ts","",""

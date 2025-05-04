@@ -1,0 +1,6 @@
+Navigating to application start page
+Clicking "Ansök nu" (Apply now) button
+ Filling form with E-post & Mobilnummer
+ Filling form with invalid SSN
+ Checking for SSN validation error message
+Invalid SSN test completed

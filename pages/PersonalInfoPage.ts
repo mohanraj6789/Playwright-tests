@@ -1,49 +1,44 @@
 import { Page, expect} from '@playwright/test';
-
+import { TEXT } from '../utils/constants';
 
 // Represents the Personal Information step in the loan application.
 export class PersonalInfoPage {
   constructor(private page: Page) {}
 
   async assertPageLoaded() {
-    await expect(this.page.getByText('Lite uppgifter om dig')).toBeVisible(); // Verifies that the personal info form is visible on the page
+    await expect(this.page.getByText(TEXT.personalInfoHeading)).toBeVisible(); // Verifies that the personal info form is visible on the page
   }
 
-  async personalDetails(email: string, phone: string, ssn: string) {
+  async personalDetails(email: string, phone: string, SSN: string) {
     console.log('Filling form with Personal details');
-    await this.page.getByLabel('E-post').fill(email);
-    await this.page.getByLabel('Mobilnummer').fill(phone);
-    await this.page.getByLabel('Personnummer').fill(ssn);
-    await this.page.getByRole('button', { name: 'Fortsätt' }).click();
+    await this.page.locator('#email').fill(email);
+    await this.page.locator('#mobile').fill(phone);
+    await this.page.locator('#nationalNumber').fill(SSN);
+    await this.page.getByRole('button', { name: TEXT.continueButton }).click();
   }
 
-  async fillInvalidSSN(email: string, phone: string, invalidSsn: string) {
+  async fillInvalidSSN(email: string, phone: string, SSN: string) {
     console.log(' Filling form with E-post & Mobilnummer');
     await this.assertPageLoaded();
-    await this.page.getByLabel('E-post').fill(email);
-    await this.page.getByLabel('Mobilnummer').fill(phone);
+    await this.page.locator('#email').fill(email);
+    await this.page.locator('#mobile').fill(phone);
 
     console.log(' Filling form with invalid SSN');
-    await this.page.getByLabel('Personnummer').fill(invalidSsn);
+    await this.page.locator('#nationalNumber').fill(SSN);
   }
+  
   async assertInvalidSSNErrorVisible() {
     console.log(' Checking for SSN validation error message');
-    await expect(
-      this.page.locator('text=Ange personnummer med 10 elle 12 siffror, med eller utan bindestreck.')
-    ).toBeVisible();
+    await expect(this.page.locator(`text=${TEXT.invalidSSNError}`)).toBeVisible();
   }
-  async captureSSNErrorScreenshot() {
-    await this.page.screenshot({ path: 'screenshots/ssn-error.png' });
-  }
-  async SSN_olderThan30(email_above30: string, phone_above30: string, ssn_above30: string) {
-    console.log(' Filling form with E-post & Mobilnummer');
-    await this.assertPageLoaded();
-    await this.page.getByLabel('E-post').fill(email_above30);
-    await this.page.getByLabel('Mobilnummer').fill(phone_above30);
 
-    console.log(' Filling form with SSN older than 30');
-    await this.page.getByLabel('Personnummer').fill(ssn_above30);
-    await this.page.getByRole('button', { name: 'Fortsätt' }).click();
+  async fillOverAge30Details(email: string, phone: string, SSN: string) {
+    console.log('Filling form with ineligible student info (age > 30)');
+    await this.assertPageLoaded();
+    await this.page.locator('#email').fill(email);
+    await this.page.locator('#mobile').fill(phone);
+    await this.page.locator('#nationalNumber').fill(SSN);
+    await this.page.getByRole('button', { name: TEXT.continueButton }).click();
   }
   
 }

@@ -1,19 +1,19 @@
 import { Page, expect } from '@playwright/test';
+import { TEXT } from '../utils/constants';
+
 
 export class ApplicationStartPage {
   constructor(private page: Page) {}
 
   async goto() {
-    await this.page.goto('https://testapp.fairlo.se/application');  // Navigates to the application URL
+    await this.page.goto('/application');  // Navigates to the application URL
   }
 
   async assertStartPageLoaded() {
-    await expect(
-      this.page.getByText(/En snäppet schysstare livet-händer-buffert/i)  // // Verifies that the start page has loaded successfully by checking for key content
-    ).toBeVisible();
+    await expect(this.page.getByText(TEXT.startPageHeading)).toBeVisible();  // Verifies that the start page has loaded successfully by checking for key content
   }
 
   async clickApplyNow() {
-    await this.page.getByText('Ansök nu').click();
+    await this.page.getByText(TEXT.applyNowButton).click();
   }
 }

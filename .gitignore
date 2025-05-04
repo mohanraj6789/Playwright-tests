@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Playwright output
+test-results/
+playwright-report/
+trace.zip
+*.log
+
+# Allure output
+allure-results/
+allure-report/
+
+# Screenshots and videos
+screenshots/
+*.png
+*.webm
+
+# Local environment files
+.env

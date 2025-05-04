@@ -1,0 +1,16 @@
+Navigating to application start page
+Clicking "Ansök nu" (Apply now) button
+Filling form with ineligible student info (age > 30)
+Checking that Employment Type page is loaded
+ Selecting employment type: Student
+ Clicking continue button after selecting employment type
+Checking that Financial Info page is loaded
+ Filling in monthly income: testUser.income
+ Filling in monthly house cost: testUser.monthlyHouseCost}
+ Filling in transportation cost: testUser.transportationCost}
+ Filling in other loan cost: testUser.otherLoanCost}
+ Clicking continue button to proceed
+Waiting for loan processing message...
+Waiting for result screen to load (approval or rejection)
+ Verifying if rejection message is displayed
+ Message on page: "Grattis! Du blev beviljad 20 000 kr"
